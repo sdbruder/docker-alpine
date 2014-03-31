@@ -1,7 +1,7 @@
 docker-alpine
 =============
 
-Script for creating [Alpine Linux][a] [Docker][d] base images.
+Script for creating [Docker][d] base images for [Alpine Linux][a].
 
-[a]: http://alpinelinux.org/
 [d]: http://docker.io/
+[a]: http://alpinelinux.org/
