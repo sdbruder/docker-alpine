@@ -1,5 +1,10 @@
 #!/bin/sh
 
+[ $(id -u) -eq 0 ] || {
+  printf >&2 '%s requires root\n' "$0"
+  exit 1
+}
+
 REL=${REL:-edge}
 ARCH=${ARCH:-x86_64}
 MIRROR=${MIRROR:-http://nl.alpinelinux.org/alpine}
