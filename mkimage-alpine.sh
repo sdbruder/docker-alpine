@@ -6,7 +6,7 @@
 }
 
 REL=${REL:-edge}
-ARCH=${ARCH:-x86_64}
+ARCH=$(uname -m)
 MIRROR=${MIRROR:-http://nl.alpinelinux.org/alpine}
 REPO=$MIRROR/$REL/main
 
