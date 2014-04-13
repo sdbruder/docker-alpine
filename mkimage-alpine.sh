@@ -16,3 +16,6 @@ apkv() {
 
 curl -s $REPO/$ARCH/apk-tools-static-$(apkv).apk |
   tar -xz -C $TMP sbin/apk.static
+
+sudo $TMP/sbin/apk.static --repository $REPO --update-cache --allow-untrusted \
+  --root $ROOTFS --initdb add alpine-base
