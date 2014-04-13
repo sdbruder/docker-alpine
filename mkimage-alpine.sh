@@ -19,3 +19,5 @@ curl -s $REPO/$ARCH/apk-tools-static-$(apkv).apk |
 
 sudo $TMP/sbin/apk.static --repository $REPO --update-cache --allow-untrusted \
   --root $ROOTFS --initdb add alpine-base
+
+printf '%s\n' $REPO > $ROOTFS/etc/apk/repositories
