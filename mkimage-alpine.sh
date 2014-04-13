@@ -6,7 +6,8 @@ MIRROR=${MIRROR:-http://nl.alpinelinux.org/alpine}
 REPO=$MIRROR/$REL/main
 
 TMP=$(mktemp -d /tmp/alpine-docker-XXXXXXXXXX)
-trap "rm -r $TMP" EXIT TERM INT
+ROOTFS=$(mktemp -d /tmp/alpine-docker-rootfs-XXXXXXXXXX)
+trap "rm -r $TMP $ROOTFS" EXIT TERM INT
 
 apkv() {
   curl -s $REPO/$ARCH/APKINDEX.tar.gz | tar -Oxz | grep '^P:apk-tools-static$' -A1 |
