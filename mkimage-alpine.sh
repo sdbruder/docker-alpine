@@ -42,7 +42,7 @@ pack() {
 }
 
 while getopts "hr:m:" opt; do
-	case $opt in
+  case $opt in
     r)
       REL=$OPTARG
       ;;
