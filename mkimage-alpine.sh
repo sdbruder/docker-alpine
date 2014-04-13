@@ -7,7 +7,7 @@ REPO=$MIRROR/$REL/main
 
 TMP=$(mktemp -d /tmp/alpine-docker-XXXXXXXXXX)
 ROOTFS=$(mktemp -d /tmp/alpine-docker-rootfs-XXXXXXXXXX)
-trap "rm -r $TMP $ROOTFS" EXIT TERM INT
+trap "sudo rm -rf $TMP $ROOTFS" EXIT TERM INT
 
 apkv() {
   curl -s $REPO/$ARCH/APKINDEX.tar.gz | tar -Oxz |
