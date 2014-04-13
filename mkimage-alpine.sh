@@ -24,4 +24,4 @@ printf '%s\n' $REPO > $ROOTFS/etc/apk/repositories
 
 ID=$(tar --numeric-owner -C $ROOTFS -c . | docker import - alpine:$REL)
 docker tag $ID alpine:latest
-docker run -i -t alpine printf 'It worked!\n'
+docker run -i -t alpine printf 'alpine:%s with id=%s created!\n' $REL $ID
