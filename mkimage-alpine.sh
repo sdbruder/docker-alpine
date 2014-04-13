@@ -10,8 +10,9 @@ ROOTFS=$(mktemp -d /tmp/alpine-docker-rootfs-XXXXXXXXXX)
 trap "rm -r $TMP $ROOTFS" EXIT TERM INT
 
 apkv() {
-  curl -s $REPO/$ARCH/APKINDEX.tar.gz | tar -Oxz | grep '^P:apk-tools-static$' -A1 |
-    tail -n1 | cut -d: -f2
+  curl -s $REPO/$ARCH/APKINDEX.tar.gz | tar -Oxz |
+    grep '^P:apk-tools-static$' -A1 | tail -n1 | cut -d: -f2
 }
 
-curl -s $REPO/$ARCH/apk-tools-static-$(apkv).apk | tar -xz -C $TMP sbin/apk.static
+curl -s $REPO/$ARCH/apk-tools-static-$(apkv).apk |
+  tar -xz -C $TMP sbin/apk.static
