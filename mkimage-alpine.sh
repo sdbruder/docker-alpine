@@ -7,7 +7,7 @@ REPO=$MIRROR/$REL/main
 
 TMP=$(mktemp -d /tmp/alpine-docker-XXXXXXXXXX)
 ROOTFS=$(mktemp -d /tmp/alpine-docker-rootfs-XXXXXXXXXX)
-trap "sudo rm -rf $TMP $ROOTFS" EXIT TERM INT
+trap "rm -rf $TMP $ROOTFS" EXIT TERM INT
 
 apkv() {
   curl -s $REPO/$ARCH/APKINDEX.tar.gz | tar -Oxz |
@@ -17,7 +17,7 @@ apkv() {
 curl -s $REPO/$ARCH/apk-tools-static-$(apkv).apk |
   tar -xz -C $TMP sbin/apk.static
 
-sudo $TMP/sbin/apk.static --repository $REPO --update-cache --allow-untrusted \
+$TMP/sbin/apk.static --repository $REPO --update-cache --allow-untrusted \
   --root $ROOTFS --initdb add alpine-base
 
 printf '%s\n' $REPO > $ROOTFS/etc/apk/repositories
