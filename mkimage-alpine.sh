@@ -12,3 +12,5 @@ apkv() {
   curl -s $REPO/APKINDEX.tar.gz | tar -Oxz | grep '^P:apk-tools-static$' -A1 |
     tail -n1 | cut -d: -f2
 }
+
+curl -s $REPO/apk-tools-static-$(apkv).apk | tar -xz -C $TMP sbin/apk.static
