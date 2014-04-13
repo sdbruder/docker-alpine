@@ -6,7 +6,7 @@
 }
 
 usage() {
-  printf >&2 '%s: [-r release] [-m mirror]\n' "$0"
+  printf >&2 '%s: [-r release] [-m mirror] [-s]\n' "$0"
   exit 1
 }
 
@@ -41,13 +41,22 @@ pack() {
   docker run -i -t alpine printf 'alpine:%s with id=%s created!\n' $REL $ID
 }
 
-while getopts "hr:m:" opt; do
+save() {
+  [ $SAVE -eq 1 ] || return
+
+  tar --numeric-owner -C $ROOTFS -c . | xz > rootfs.tar.xz
+}
+
+while getopts "hr:m:s" opt; do
   case $opt in
     r)
       REL=$OPTARG
       ;;
     m)
       MIRROR=$OPTARG
+      ;;
+    s)
+      SAVE=1
       ;;
     *)
       usage
@@ -57,7 +66,8 @@ done
 
 REL=${REL:-edge}
 MIRROR=${MIRROR:-http://nl.alpinelinux.org/alpine}
+SAVE=${SAVE:-0}
 REPO=$MIRROR/$REL/main
 ARCH=$(uname -m)
 
-tmp && getapk && mkbase && conf && pack
+tmp && getapk && mkbase && conf && pack && save
