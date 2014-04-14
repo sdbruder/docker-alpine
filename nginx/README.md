@@ -1,7 +1,7 @@
 nginx
 =====
 
-[Alpine Linux][a] image with [nginx][].
+[Alpine Linux][a] image with [nginx][n].
 
 Usage
 -----
