@@ -3,6 +3,10 @@ nginx
 
 [Alpine Linux][a] image with [nginx][n].
 
+Note that this image does not configure any
+http `server` instances. Use other child images
+who do so.
+
 Usage
 -----
 
