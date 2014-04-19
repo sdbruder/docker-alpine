@@ -5,7 +5,7 @@ nginx
 
 Note that this image does not configure any
 http `server` instances. Use other child images
-who do so.
+with `--volumes-from` to do so.
 
 Usage
 -----
