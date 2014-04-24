@@ -12,6 +12,11 @@ Images
 * alpine (base)
 * nginx
 
+License
+-------
+
+ISC
+
 [d]: http://docker.io/
 [a]: http://alpinelinux.org/
 [i]: https://index.docker.io/u/uggedal/
