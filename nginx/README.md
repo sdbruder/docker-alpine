@@ -14,5 +14,10 @@ Usage
 docker run -d -p 80:80 uggedal/nginx
 ```
 
+License
+-------
+
+ISC
+
 [a]: http://alpinelinux.org/
 [n]: http://nginx.org/
