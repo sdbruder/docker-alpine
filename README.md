@@ -1,16 +1,10 @@
 docker-alpine
 =============
 
-[Docker][d] images for [Alpine Linux][a].
+[Docker][d] base image for [Alpine Linux][a].
 
-You can find trusted builds of these images
+You can find trusted builds of this image
 on the [docker index][i].
-
-Images
-------
-
-* alpine (base)
-* nginx
 
 License
 -------
